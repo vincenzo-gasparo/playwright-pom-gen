@@ -7,7 +7,7 @@ import { registerGenerateTool } from "./tools/generate.js";
 requireAnthropicKey();
 
 const server = new McpServer({
-  name: "playwright-pom-gen",
+  name: "playwright-pom-mcp",
   version: "0.1.0",
 });
 

@@ -1,4 +1,4 @@
-# playwright-pom-gen
+# playwright-pom-mcp
 
 An MCP server that generates functional [Page Object Models](https://playwright.dev/docs/pom) from live Playwright accessibility snapshots. Navigate your browser to any page state — including behind a login — and get a ready-to-use `.page.ts` file back.
 
@@ -44,7 +44,7 @@ pnpm dev:cli https://example.com -n home -o poms
 
 ```sh
 git clone <repo-url>
-cd playwright-pom-gen
+cd playwright-pom-mcp
 
 pnpm install
 npx playwright install chromium
@@ -111,9 +111,9 @@ Add the following to `~/.claude/settings.json` (global) or `.claude/settings.jso
 ```json
 {
   "mcpServers": {
-    "playwright-pom-gen": {
+    "playwright-pom-mcp": {
       "command": "node",
-      "args": ["/absolute/path/to/playwright-pom-gen/dist/index.js"],
+      "args": ["/absolute/path/to/playwright-pom-mcp/dist/index.js"],
       "env": {
         "ANTHROPIC_API_KEY": "sk-ant-..."
       }
@@ -138,9 +138,9 @@ Pass variables via the `env` field in your MCP client config:
 ```json
 {
   "mcpServers": {
-    "playwright-pom-gen": {
+    "playwright-pom-mcp": {
       "command": "node",
-      "args": ["/absolute/path/to/playwright-pom-gen/dist/index.js"],
+      "args": ["/absolute/path/to/playwright-pom-mcp/dist/index.js"],
       "env": {
         "ANTHROPIC_API_KEY": "sk-ant-...",
         "ANTHROPIC_MODEL": "claude-opus-4-6"

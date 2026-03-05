@@ -1,14 +1,14 @@
 {
-  "name": "playwright-pom-gen",
-  "version": "1.0.0",
+  "name": "@blastoiseomg/playwright-pom-mcp",
+  "version": "0.1.0",
   "description": "MCP server and CLI that generates functional Page Object Models from live Playwright accessibility snapshots",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vincenzo-gasparo/playwright-pom-gen.git"
+    "url": "git+https://github.com/vincenzo-gasparo/playwright-pom-mcp.git"
   },
   "type": "module",
   "bin": {
-    "playwright-pom-gen": "./dist/index.js",
+    "playwright-pom-mcp": "./dist/index.js",
     "pom-gen": "./dist/cli.js"
   },
   "files": [
