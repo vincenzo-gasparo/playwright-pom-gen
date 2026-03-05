@@ -1,6 +1,6 @@
 {
   "name": "@blastoiseomg/playwright-pom-mcp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "MCP server and CLI that generates functional Page Object Models from live Playwright accessibility snapshots",
   "repository": {
     "type": "git",
