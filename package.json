@@ -2,6 +2,7 @@
   "name": "@blastoiseomg/playwright-pom-mcp",
   "version": "1.0.0",
   "description": "MCP server and CLI that generates functional Page Object Models from live Playwright accessibility snapshots",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vincenzo-gasparo/playwright-pom-mcp.git"
