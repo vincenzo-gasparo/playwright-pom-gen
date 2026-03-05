@@ -1,0 +1,95 @@
+image: node:22-alpine
+
+variables:
+  GIT_DEPTH: 0
+  PNPM_STORE: .pnpm-store
+
+stages:
+  - install
+  - quality
+  - release
+
+## ------------------------------------------------
+## CACHE TEMPLATES
+## ------------------------------------------------
+
+.cache-rw:
+  cache:
+    - key:
+        files:
+          - pnpm-lock.yaml
+      paths:
+        - $PNPM_STORE
+
+.cache-pull:
+  cache:
+    - key:
+        files:
+          - pnpm-lock.yaml
+      policy: pull
+      paths:
+        - $PNPM_STORE
+
+.pnpm-before:
+  before_script:
+    - npm install -g pnpm
+    - pnpm config set store-dir $PNPM_STORE
+    - pnpm install --frozen-lockfile
+
+## ------------------------------------------------
+## INSTALL
+## ------------------------------------------------
+
+Install:
+  stage: install
+  extends:
+    - .cache-rw
+    - .pnpm-before
+  script:
+    - echo "Dependencies installed"
+
+## ------------------------------------------------
+## QUALITY
+## ------------------------------------------------
+
+Check:
+  stage: quality
+  extends:
+    - .cache-pull
+    - .pnpm-before
+  script:
+    - pnpm run check
+
+Test:
+  stage: quality
+  extends:
+    - .cache-pull
+    - .pnpm-before
+  script:
+    - pnpm run test
+
+Build:
+  stage: quality
+  extends:
+    - .cache-pull
+    - .pnpm-before
+  script:
+    - pnpm run build
+
+## ------------------------------------------------
+## RELEASE
+## ------------------------------------------------
+
+Release:
+  stage: release
+  extends:
+    - .cache-pull
+    - .pnpm-before
+  script:
+    - pnpm run build
+    - npx semantic-release
+  variables:
+    GIT_DEPTH: 0
+  only:
+    refs:
+      - main
