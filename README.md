@@ -16,7 +16,7 @@ npx playwright install chromium
 ### Claude Code
 
 ```sh
-claude mcp add playwright-pom-mcp -- playwright-pom-mcp
+claude mcp add -e ANTHROPIC_API_KEY=sk-ant-... playwright-pom-mcp -- playwright-pom-mcp
 ```
 
 Or add manually to `~/.claude/settings.json`:
